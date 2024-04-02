@@ -4182,7 +4182,7 @@ void GLCanvas3D::on_mouse(wxMouseEvent& evt)
             }
         }
         // do not process the dragging if the left mouse was set down in another canvas
-        else if (evt.LeftIsDown()) {
+        else if (evt.RightIsDown()) {
             // Orca: Sphere rotation for painting view 
             // if dragging over blank area with left button, rotate
             if ((any_gizmo_active || m_hover_volume_idxs.empty()) && m_mouse.is_start_position_3D_defined()) {
@@ -4246,7 +4246,7 @@ void GLCanvas3D::on_mouse(wxMouseEvent& evt)
             }
             m_mouse.drag.start_position_3D = Vec3d((double)pos(0), (double)pos(1), 0.0);
         }
-        else if (evt.MiddleIsDown() || evt.RightIsDown()) {
+        else if (evt.MiddleIsDown()) {
             // If dragging over blank area with right button, pan.
             if (m_mouse.is_start_position_2D_defined()) {
                 // get point in model space at Z = 0
